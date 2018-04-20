@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+
+  
+{% block content %}
+      
+      <div>
+        <h1>
+          {% if text_list|length > 1 %}
+            {{text_list|length}} texts
+          {% elif text_list|length == 1 %}
+             {{text_list|length}} text
+          {% else %}
+              texts list empty
+          {% endif %}
+        </h1>
+        {% for text in text_list %}
+          <div>
+            <div>
+              <h3><a href="{% url 'text_detail' text_id=text.id %}">{{text}}</a></h3>
+            </div>
+          </div>
+      {% endfor %}
+      </div>
+
+{% endblock content %}

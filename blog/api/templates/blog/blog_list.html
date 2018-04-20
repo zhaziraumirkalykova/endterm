@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+  
+{% block content %}
+      
+      <div>
+        check
+        <h1>
+          {% if blog_list|length > 1 %}
+            {{blog_list|length}} blogs
+          {% elif blog_list|length == 1 %}
+            {{blog_list|length}} blog
+          {% else %}
+            blogs list empty
+          {% endif %}
+        </h1>
+        {% for blog in blog_list %}
+          <div>
+            <div>
+              <h2><a href="{% url 'blog_detail' blog_id=blog.id %}">{{blog}}</a></h2>
+              <h4>{{blog.body}}</h4>
+              <p>{{blog.created_at}}</p>
+            </div>
+          </div>
+      {% endfor %}
+      </div>
+
+{% endblock content %}

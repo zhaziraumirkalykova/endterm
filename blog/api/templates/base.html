@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+</head>
+
+<body>
+  <div>
+    <nav>
+      <a href="/">Logo</a>
+      <ul>
+        <li class="{% if active_menu == 'blog' %}active{% endif %}">
+          <a href="{% url 'blog_list' %}">Blog</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+      {% block content %}
+      
+      {% endblock content %}
+
+  </div>
+
+</body>
+
+</html>
